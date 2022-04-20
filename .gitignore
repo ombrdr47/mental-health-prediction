@@ -1,5 +1,7 @@
 /data/
 
+*.zip
+
 # Jupyter Notebook
 .ipynb_checkpoints
 
