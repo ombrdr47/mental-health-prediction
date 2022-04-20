@@ -10,10 +10,8 @@ RUN mkdir -p /app/scripts /app/artifacts
 
 COPY requirements.txt requirements.txt
 
-RUN apt-get update && apt-get install -y libgomp1
-
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY ./scripts/api/app.py /app/scripts/api/
 COPY ./artifacts /app/artifacts
