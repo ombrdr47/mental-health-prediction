@@ -57,7 +57,7 @@ jobs:
 
       # Upload zip file artifact
       - name: Upload zip file artifact
-        uses: actions/artifact@v2
+        uses: actions/artifact@v3
         with:
           name: aws_deploy
           path: ./aws_deploy.zip
