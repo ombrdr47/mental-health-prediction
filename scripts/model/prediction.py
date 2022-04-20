@@ -11,18 +11,17 @@ def train_model(data_path,model_path):
     model_path = model_path + 'finalRFmodel_21APR2022'
     data_path = data_path + 'processed_data.csv'
 
+    record_num = np.random.randint(0,len(df))
 
     df = pd.read_csv(data_path)
-
-    # s = setup(df, target = 'mental_disorder')
-    # print("Setting up pycaret env - Successful")
-
-    # rf = create_model("rf")
-    # print("Creating Random Forest model - Successful")
-    record_num = np.random.randint(0,len(df))
+    print("Reading processed data - Successful")
+    
+    
     print(f"Making prediction on record number {record_num}")
+    
     print("Loading saved model...")
     loaded_model = load_model(model_path)
+    
     prediction = predict_model(loaded_model,data = df.iloc[[record_num]])
     print(f"Actual class is {list(df.iloc[[record_num]]['mental_disorder'])[0]}")
     print(f"Predicted class is {list(prediction.Label)[0]} with {list(prediction.Score)[0]*100}% confidence")

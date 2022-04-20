@@ -8,7 +8,7 @@ app = FastAPI()
 
 
 # Load trained Pipeline
-model = load_model('./artifacts/pycaretModels/*')
+model = load_model('./artifacts/pycaretModels/finalRFmodel_21APR2022')
 
 
 @app.get('/')
@@ -28,6 +28,7 @@ async def healthcheck():
 # Define predict function
 @app.post('/predict')
 def predict(gender, age, education, marital, income, loan, friend_no, friend_help, friend_interact, share_feel, have_someone, lonely, bullied, family_support, compare_life, social_media, hangout, home_time, religious, goal, suicidal, sleep_disorder, love_someone, die_someone, thoughts_command, self_harm, thoughts_acted, thoughts_acted2, thoughts_time, voices, harming_others, suicide, suicidal_thoughts, therapy):
+    """ This endpoint predicts whether the User has Depression, Anxiety, Panic Attacks or None mentioned based on the Questionnaire of 36 questions"""
     data = [gender, age, education, marital, income, loan, friend_no, friend_help, friend_interact, share_feel, have_someone, lonely, bullied, family_support, compare_life, social_media, hangout, home_time, religious, goal, suicidal, sleep_disorder, love_someone, die_someone, thoughts_command, self_harm, thoughts_acted, thoughts_acted2, thoughts_time, voices, harming_others, suicide, suicidal_thoughts, therapy]
     data = pd.DataFrame([data])
     data.columns = ['gender', 'age', 'education', 'marital', 'income', 'loan', 'friend_no', 'friend_help', 'friend_interact', 'share_feel', 'have_someone', 'lonely', 'bullied', 'family_support', 'compare_life', 'social_media', 'hangout', 'home_time', 'religious', 'goal', 'suicidal', 'sleep_disorder', 'love_someone', 'die_someone', 'thoughts_command', 'self_harm', 'thoughts_acted', 'thoughts_acted2', 'thoughts_time', 'voices', 'harming_others', 'suicide', 'suicidal_thoughts', 'therapy']
