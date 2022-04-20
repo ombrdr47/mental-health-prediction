@@ -1,4 +1,4 @@
-name: FastAPI CI/CD
+name: FastAPI Testing Workflow
 
 on:
   push:
@@ -44,14 +44,14 @@ jobs:
       - name: Run tests
         run: . venv/bin/activate && pytest
 
-      # Create archive of dependencies
-      - name: Create archive of dependencies
-        run: |
-          cd ./venv/lib/python3.8/site-packages/
-          zip -r9 ../../../../api.zip .
+      # # Create archive of dependencies
+      # - name: Create archive of dependencies
+      #   run: |
+      #     cd ./venv/lib/python3.8/site-packages/
+      #     zip -r9 ../../../../api.zip .
 
-      # Add API files to zip
-      - name: Add API files to zip
-        run: |
-          cd ./scripts/api
-          zip -g api.zip app.py
+      # # Add API files to zip
+      # - name: Add API files to zip
+      #   run: |
+      #     cd ./scripts/api
+      #     zip -g api.zip app.py
