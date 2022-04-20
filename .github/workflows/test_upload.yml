@@ -44,22 +44,20 @@ jobs:
       - name: Run tests
         run: . venv/bin/activate && pytest
 
-      # Create archive of dependencies
-      - name: Create archive of dependencies
-        run: |
-          cd ./venv/lib/python3.8/site-packages/
-          zip -r9 ../../../../aws_deploy.zip .
+      # # Create archive of dependencies
+      # - name: Create archive of dependencies
+      #   run: |
+      #     cd ./venv/lib/python3.8/site-packages/
+      #     zip -r9 ../../../../aws_deploy.zip .
 
-      # Add API files to zip
-      - name: Add API and Artifact files to zip
-        run: |
-          zip -g aws_deploy.zip -r ./artifacts ./scripts Dockerfile docker-compose.yml requirements.txt
+      # # Add API files to zip
+      # - name: Add API and Artifact files to zip
+      #   run: |
+      #     zip -g aws_deploy.zip -r ./artifacts ./scripts Dockerfile docker-compose.yml requirements.txt
 
-      # Upload zip file artifact
-      - name: Upload zip file artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: aws_deploy
-          path: ./aws_deploy.zip
-          mime-type: application/zip
-          cache-control: public, max-age=31536000
+      # # Upload zip file artifact
+      # - name: Upload zip file artifact
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: aws_deploy
+      #     path: ./aws_deploy.zip

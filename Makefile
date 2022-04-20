@@ -74,7 +74,7 @@ data:
 	wget --no-check-certificate --output-document=$(DATA_DIR)survey.csv 'https://docs.google.com/spreadsheets/d/1Zga_eVHZOktbAgTKevxUL_2cQlkQCJjsw4WA_tyHn2w/export?format=csv'
 
 data_merge:
-	@# Help: Combine existing data and latest survey data and save it to$(DATA_INTERIM_DIR) directory
+	@# Help: Combine existing data and latest survey data and save it to $(DATA_INTERIM_DIR) directory
 	$(CONDA_ACTIVATE) mentalHealth
 	python $(SCRIPT_DIR)data/new_data_merge.py $(DATA_DIR) $(DATA_INTERIM_DIR)
 
