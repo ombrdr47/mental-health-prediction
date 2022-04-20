@@ -1,5 +1,6 @@
 import click
 import pandas as pd
+import numpy as np
 from pycaret.classification import *
 
 @click.command()
@@ -18,7 +19,9 @@ def train_model(data_path,model_path):
 
     # rf = create_model("rf")
     # print("Creating Random Forest model - Successful")
-    record_num = 408
+    record_num = np.random.randint(0,len(df))
+    print(f"Making prediction on record number {record_num}")
+    print("Loading saved model...")
     loaded_model = load_model(model_path)
     prediction = predict_model(loaded_model,data = df.iloc[[record_num]])
     print(f"Actual class is {list(df.iloc[[record_num]]['mental_disorder'])[0]}")

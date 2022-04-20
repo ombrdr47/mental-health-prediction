@@ -68,7 +68,7 @@ else
 endif
 
 
-data:
+data: clean
 	@# Help: Download the data from the source and save it to the data/raw/ directory
 	$(CONDA_ACTIVATE) mentalHealth
 	kaggle datasets download $(DATA_URL) -p $(DATA_DIR)
@@ -89,13 +89,16 @@ preprocess:
 train_model:
 	@# Help: Read the final processed data, train the optimal model and save the pkl file to $(MODEL_DIR) directory
 	$(CONDA_ACTIVATE) mentalHealth
+	mkdir -p $(ARTIFACT_DIR)pycaretModels
 	python $(SCRIPT_DIR)model/train_model.py $(DATA_PROCESSED_DIR) $(MODEL_DIR)
 
-make_prediction:
-	@# Help: Load the trained model and make predictions using it
+pred:
+	@# Help: Load the trained model and make predictions using it.
 	$(CONDA_ACTIVATE) mentalHealth
 	python $(SCRIPT_DIR)model/prediction.py $(DATA_PROCESSED_DIR) $(MODEL_DIR)
 
+all: data data_merge preprocess train_model pred
+	@# Help: Run all the above commands
 
 app:
 	@# Help: Run the FastAPI app

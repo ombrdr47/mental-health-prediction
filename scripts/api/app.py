@@ -2,14 +2,13 @@
 import pandas as pd
 from pycaret.classification import load_model, predict_model
 from fastapi import FastAPI
-import uvicorn
 
 # Create the app
 app = FastAPI()
 
 
 # Load trained Pipeline
-model = load_model('./artifacts/LGBM/lgbm_model')
+model = load_model('./artifacts/pycaretModels/*')
 
 
 @app.get('/')
