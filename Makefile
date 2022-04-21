@@ -12,7 +12,6 @@ DATA_PROCESSED_DIR := $(PROJECT_DIR)/data/processed/
 SCRIPT_DIR := $(PROJECT_DIR)/scripts/
 ARTIFACT_DIR := $(PROJECT_DIR)/artifacts/
 MODEL_DIR := $(ARTIFACT_DIR)/pycaretModels/
-PORT := 8000
 
 ifeq (,$(shell which conda))
 HAS_CONDA=False
@@ -99,17 +98,18 @@ pred:
 	python $(SCRIPT_DIR)model/prediction.py $(DATA_PROCESSED_DIR) $(MODEL_DIR)
 
 all: data data_merge preprocess train_model pred
-	@# Help: Run all the above commands
+	@# Help: Run all the above commands in the following order: Download the data(data) --> Merge the existing data with the latest survey data(data_merge) --> Preprocess the data(preprocess) --> Train the optimal model(train_model) --> Generate predictions on randomly selected data from the dataset(pred)
 
 app:
 	@# Help: Run the FastAPI app
 	$(CONDA_ACTIVATE) mentalHealth
-	uvicorn scripts.api.app:app --reload --host 0.0.0.0 --port $(PORT)
+	uvicorn scripts.api.app:app --reload --host 0.0.0.0 --port 8000
 
 docker:
 	@# Help: Build the docker image
+	PORT := 8000
 	DOCKER_BUILDKIT=1 docker build -f "Dockerfile" -t mentalhealth .
-	docker tag mentalhealth:latest mentalhealth:v1.0.0
+	docker tag mentalhealth:latest mentalhealth:v1.0.1
 	docker run -dp 8000:8000 mentalhealth
 
 .DEFAULT_GOAL := help
