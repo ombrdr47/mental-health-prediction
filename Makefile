@@ -48,7 +48,7 @@ endif
 # Recipe for activating the conda environment within the sub-shell as a target, from my solution at https://stackoverflow.com/a/71548453/13749426
 .ONESHELL:
 # Need to specify bash in order for conda activate to work, otherwise it will try to use the default shell, which is "zsh" in this case
-SHELL = /bin/bash
+SHELL = /bin/zsh
 
 # Note that the extra activate is needed to ensure that the activate floats env to the front of PATH, otherwise it will not work
 CONDA_ACTIVATE = source $$(conda info --base)/etc/profile.d/conda.sh ; conda activate ; conda activate
@@ -77,17 +77,17 @@ data: clean
 	wget --no-check-certificate --output-document=$(DATA_DIR)survey.csv 'https://docs.google.com/spreadsheets/d/1Zga_eVHZOktbAgTKevxUL_2cQlkQCJjsw4WA_tyHn2w/export?format=csv'
 
 data_merge:
-	@# Help: Combine existing data and latest survey data and save it to $(DATA_INTERIM_DIR) directory
+	@# Help: Combine existing data and latest survey data and save it to (DATA_INTERIM_DIR) directory
 	$(CONDA_ACTIVATE) mentalHealth
 	python $(SCRIPT_DIR)data/new_data_merge.py $(DATA_DIR) $(DATA_INTERIM_DIR)
 
 preprocess:
-	@# Help: Preprocess the data and save it to the $(DATA_PROCESSED_DIR) directory
+	@# Help: Preprocess the data and save it to the (DATA_PROCESSED_DIR) directory
 	$(CONDA_ACTIVATE) mentalHealth
 	python $(SCRIPT_DIR)features/preprocess.py $(DATA_INTERIM_DIR) $(DATA_PROCESSED_DIR)
 
 train_model:
-	@# Help: Read the final processed data, train the optimal model and save the pkl file to $(MODEL_DIR) directory
+	@# Help: Read the final processed data, train the optimal model and save the pkl file to (MODEL_DIR) directory
 	$(CONDA_ACTIVATE) mentalHealth
 	mkdir -p $(ARTIFACT_DIR)pycaretModels
 	python $(SCRIPT_DIR)model/train_model.py $(DATA_PROCESSED_DIR) $(MODEL_DIR)
@@ -97,7 +97,7 @@ pred:
 	$(CONDA_ACTIVATE) mentalHealth
 	python $(SCRIPT_DIR)model/prediction.py $(DATA_PROCESSED_DIR) $(MODEL_DIR)
 
-all: data data_merge preprocess train_model pred
+.all: data data_merge preprocess train_model pred
 	@# Help: Run all the above commands in the following order: Download the data(data) --> Merge the existing data with the latest survey data(data_merge) --> Preprocess the data(preprocess) --> Train the optimal model(train_model) --> Generate predictions on randomly selected data from the dataset(pred)
 
 app:
@@ -107,7 +107,7 @@ app:
 
 docker:
 	@# Help: Build the docker image
-	PORT := 8000
+	export PORT=8000
 	DOCKER_BUILDKIT=1 docker build -f "Dockerfile" -t mentalhealth .
 	docker tag mentalhealth:latest mentalhealth:v1.0.1
 	docker run -dp 8000:8000 mentalhealth
