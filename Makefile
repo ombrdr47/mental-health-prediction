@@ -62,7 +62,7 @@ ifeq (True,$(HAS_CONDA))
 	$(CONDA_ACTIVATE) mentalHealth
 	pip-compile requirements/req.in
 	pip-sync requirements/req.txt
-	pip install "pycaret[full]"
+	pip install pycaret==2.3.10
 else
 	@echo ">>> conda not detected, please use a shell configured with conda. Use "Anaconda Prompt" for Windows. Please download and install Anaconda if you don't already have it. Exiting..."
 endif
