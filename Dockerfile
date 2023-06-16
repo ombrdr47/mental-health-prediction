@@ -2,7 +2,7 @@
 
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8
 
-LABEL maintainer="IndraP24 - Indrashis Paul"
+LABEL maintainer="indrapaul824 - Indrashis Paul"
 
 WORKDIR /app
 
