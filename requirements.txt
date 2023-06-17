@@ -1,7 +1,6 @@
 # packages in environment at /home/indrap24/anaconda3/envs/mentalHealth:
 
-scikit-learn
 fastapi==0.75.1
-pycaret==2.3.10
+pycaret==3.0.2
 uvicorn==0.17.6
 pytest==7.1.1
