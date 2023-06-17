@@ -1,7 +1,6 @@
 # Mental Health Prediction from Survey Data
 
 [![API Tests](https://github.com/IndraP24/mental-health-prediction/actions/workflows/test_upload.yml/badge.svg?branch=master)](https://github.com/IndraP24/mental-health-prediction/actions/workflows/test_upload.yml)
-[![Deploy to Heroku](https://github.com/IndraP24/mental-health-prediction/actions/workflows/heroku_docker_deploy.yml/badge.svg)](https://github.com/IndraP24/mental-health-prediction/actions/workflows/heroku_docker_deploy.yml)
 
 ## Introduction
 
