@@ -35,8 +35,8 @@ def predict(gender, age, education, marital, income, loan, friend_no, friend_hel
     
     
     predictions = predict_model(model, data=data) 
-    return {'prediction': list(predictions['Label']),
-            'score': list(predictions['Score'])[0]*100}
+    return {'prediction': list(predictions['prediction_label']),
+            'score': list(predictions['prediction_score'])[0]*100}
 
 # if __name__ == '__main__':
 #     uvicorn.run(app, host='0.0.0.0', port=8000)
