@@ -62,3 +62,6 @@ coverage.xml
 .pytest_cache/
 cover/
 
+
+.space
+.vercel
