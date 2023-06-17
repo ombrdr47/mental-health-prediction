@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8
+FROM --platform=linux/amd64 tiangolo/uvicorn-gunicorn-fastapi:python3.8
 
 LABEL maintainer="indrapaul824 - Indrashis Paul"
 
