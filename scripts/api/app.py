@@ -7,6 +7,10 @@ from fastapi import FastAPI
 # Create the app
 app = FastAPI()
 
+# Add title and description to the API
+app.title = 'Mental Health Predictor'
+app.description = 'This API predicts whether the User has Depression, Anxiety, Panic Attacks or None mentioned based on the Questionnaire of 36 questions'
+
 # Create PyDantic model class
 class PredictRequest(BaseModel):
     gender: str = "Male"
