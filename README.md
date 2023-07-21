@@ -56,18 +56,17 @@ After packaging, we first git version our source codes to GitHub.
 Then we deployed our Application on Render. 
 Render is a cloud platform that makes it simple to host your code and applications. Render is built for modern applications and offers everything you need out-of-the-box. We can deploy anything from a simple static site to complex applications in minutes.
 
-## Results
+<!-- ## Results -->
 
-## Local Testing
+## Contributors
 
-To set up the environment for testing:
 
-- Dependencies:
-    1. Anaconda: Follow [this link](https://www.anaconda.com/download/) to download and install.
+|                                                                                         <a href="https://github.com/indrap24"><img src="https://avatars.githubusercontent.com/u/64627762?s=400&u=0223a819d07fd06064c40e024e5692e61df6c16d&v=4" width=150px height=150px /></a>                                                                                         |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                                                                                                                        **[Indrashis Paul](https://www.linkedin.com/in/indrapaul824/)**                                                                                                                                        |
+| <a href="https://www.linkedin.com/in/indrapaul824/"><img src="https://mpng.subpng.com/20180324/vhe/kisspng-linkedin-computer-icons-logo-social-networking-ser-facebook-5ab6ebfe5f5397.2333748215219374063905.jpg" width="32px" height="32px"></a> |
 
-    2. GNU Make:
-        - Windows: Follow [this link](https://www.technewstoday.com/install-and-use-make-in-windows/) and use any one of the mentioned ways to install.
-        - Linux: Open the terminal and type `sudo apt-get install make -y`.
-        - Mac: Open the terminal and type `brew install make`.
-
-Windows Users:  
+|                                                                                         <a href="https://github.com/imraghavagr"><img src="https://avatars.githubusercontent.com/u/52325383?v=4" width=150px height=150px /></a>                                                                                         |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                                                                                                                        **[Raghav Agarwal](https://www.linkedin.com/in/raghav-a-30b020102/)**                                                                                                                                        |
+| <a href="https://www.linkedin.com/in/raghav-a-30b020102/"><img src="https://mpng.subpng.com/20180324/vhe/kisspng-linkedin-computer-icons-logo-social-networking-ser-facebook-5ab6ebfe5f5397.2333748215219374063905.jpg" width="32px" height="32px"></a> |
