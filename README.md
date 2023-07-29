@@ -1,5 +1,7 @@
 # Mental Health Prediction from Survey Data
 
+<div style="text-align: center"><img src="PngItem_499955.png" alt="Mental Health" width="400" /></div>
+
 [![API Tests](https://github.com/IndraP24/mental-health-prediction/actions/workflows/test_upload.yml/badge.svg?branch=master)](https://github.com/IndraP24/mental-health-prediction/actions/workflows/test_upload.yml)
 
 ## Introduction
